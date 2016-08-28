@@ -9,15 +9,17 @@ using System.Web.Http;
 
 namespace AppWebApi.Controllers
 {
-    public class ProductController : ApiController
+    public class P1Controller : ApiController
     {
         private IProductService productService = new ProductService();
         [HttpGet]
+        [Route("p1/getproducts")]
         public IEnumerable<Product> GetProducts()
         {
             return productService.GetProducts();
         }
         [HttpGet]
+        [Route("p1/{id}/getproduct")]
         public IHttpActionResult GetProduct(int id)
         {
             var product = productService.GetProduct(id);
